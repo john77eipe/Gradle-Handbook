@@ -36,7 +36,7 @@ The most common components of a gradle build script are
 Gradle provides full support of maven repositories. You can specify URLs or aliases.
 
 The most common way to specify a maven repo is 
-```json
+```
 repositories {
 	maven { url("some repo url") }
 }
@@ -44,7 +44,7 @@ repositories {
 
 Note that Gradle provides certain aliases like
 
-```json
+```
 //jCenter
 
 repositories {
@@ -59,7 +59,7 @@ repositories {
 ```
 
 
-```json
+```
 //mavenCenter
 
 repositories {
@@ -74,7 +74,7 @@ repositories {
 ```
 
 
-```json
+```
 //mavenLocal
 
 repositories {
@@ -90,7 +90,7 @@ repositories {
 
 
 Most common way it is specified in build scripts are
-```json
+```
 repositories {
 	mavenLocal()
 	jcenter()
@@ -111,7 +111,7 @@ Gradle provides tasks. A task could be builtin ones or custom ones provided by 3
 Have a look at `verysimple` project.
 It's build.gradle file creates a custom task called `hello`.
 
-```json
+```
 task hello {
   // Code that goes here is *configuring* the task, and will 
     // get evaluated on *every* build invocation, no matter
@@ -271,7 +271,7 @@ If you haven't noticed yet - notice that how the code inside doLast or doFirst i
 
 BuildScript is used to specify whatever is needed to setup for the build script. It could range from setting certain properties or even providing endpoint for downloading & installing plugins.
 
-```json
+```
 buildscript {
   ext {
     springBootVersion = '2.0.0.BUILD-SNAPSHOT'
@@ -305,12 +305,13 @@ dependencies {
 ```
 
 In the above example we are setting certain configurations in buildscript to install spring boot gradle plugins.
+Also note in the above example that we can exclude certain transitive dependencies easily.
 
 ## Dependencies
 
 Dependencies are provided in the maven artifact cordinate form.
 
-
+```
 +--------------------+----------------------+-------------+--------------+-----------------------------------------+
 | Name               | Role                 | Consumable? | Resolveable? | Description                             |
 +--------------------+----------------------+-------------+--------------+-----------------------------------------+
@@ -353,7 +354,7 @@ Dependencies are provided in the maven artifact cordinate form.
 |                    |                      |             |              | are only required at test               |
 |                    |                      |             |              | runtime, and not at test compile time.  |
 +--------------------+----------------------+-------------+--------------+-----------------------------------------+
-
+```
 I always go with implementation and testImplementation for spring-boot projects. 
 In case of traditional spring projects, artifacts like the servlet-3.x jars are provided by the runtime server hence only needed at compile time. Use compileOnly for those.
 
