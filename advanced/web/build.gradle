@@ -1,0 +1,5 @@
+dependencies {
+	compile group: "org.springframework", name: "spring-webmvc", version: "$springVersion"
+    compile group: "org.springframework.security", name: "spring-security-core", version: "$springVersion"
+	compile project(":commons")
+}
