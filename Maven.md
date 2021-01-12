@@ -88,4 +88,12 @@ Another example:
 ```bash
 mvn verify -Dit.test=com.elasticpath.extensions.db.test.integration.pricing.BaseAmountAuditIntegrationTest -Dmaven.failsafe.debug="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000 -Xnoagent -Djava.compiler=NONE" -Dpmd.skip=true -Dcheckstyle.skip=true
 ```
+### Maven fetch details about maven plugins
 
+To get details about a maven plugin like goals it provides. Use the below help command by passing the plugins details
+
+```bash
+mvn help:describe -DgroupId=provide_grp_id \
+                  -DartifactId=provide_artifact_id \
+                  -Ddetail=true
+```
